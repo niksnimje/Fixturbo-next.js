@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Home from "@/Components/Home/Index";
 import Loader from "@/Components/Loader/Loader";
 
-export default function page() {
+export default function Page() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
