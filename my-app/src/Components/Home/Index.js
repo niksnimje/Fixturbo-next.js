@@ -8,6 +8,10 @@ import ProjectSlider from './ProjectSlider'
 import SmilesAndSubscribe from './SmilesAndSubscribe'
 import InvestmentPlans from './InvestmentPlans'
 import AppointmentSection from './AppointmentSection'
+import TeamMemberSlider from './TeamMemberSlider'
+import FAQSection from './FAQSection'
+import TestimonialSlider from './TestimonialSlider'
+import BlogCards from '@/Cards/BlogCards'
 
 function Home() {
   return (
@@ -15,12 +19,15 @@ function Home() {
         <HeroSection />
         <CarServices />
         <AboutUsSection />
-        <Counter />      
         <ProjectSlider />
         <WhatWeDo />  
         <SmilesAndSubscribe />
         <InvestmentPlans />
         <AppointmentSection />
+        <TeamMemberSlider/>
+        <TestimonialSlider />
+        <FAQSection />
+        <BlogCards />
     </>
   )
 }

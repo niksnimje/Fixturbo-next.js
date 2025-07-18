@@ -2,38 +2,39 @@
 
 import Image from "next/image"
 import { FaUsers, FaTrophy, FaCar, FaGlobe } from "react-icons/fa"
+import Counter from "./Counter"
 
 export default function AboutUsSection() {
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="py-16 px-4 bg-[#F4F4F4] relative">
+      <div className="max-w-8xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 items-center ">
           {/* Left Side - Images and Stats */}
-          <div className="relative">
+         <div className="relative w-full lg:w-[50%] ml-auto">
             {/* Main Images Grid */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {/* Top Image */}
-              <div className="col-span-2 ">
-                <div className=" relative h-64 md:h-80 rounded-lg overflow-hidden w-[75%]]">
+              <div className="col-span-8 ms-5 ml-auto">
+                <div className=" relative h-64 md:h-80 rounded-lg overflow-hidden w-[100%]">
                   <Image
                     src="/about_1.png"
                     alt="Mechanic working on car engine"
                     fill
-                    className="object-contain"
+                    className="object-contain "
                   />
                 </div>
               </div>
 
               {/* Bottom Image */}
-              <div className="col-span-2">
-                <div className="relative h-48 md:h-64 rounded-lg overflow-hidden">
+              <div className="col-span-7">
+                <div className="relative h-48 md:h-64 rounded-lg overflow-hidden w-[100%] lg:left-[-30%]" >
                   <Image src="/about_2.png" alt="Car service garage" fill className="object-contain" />
                 </div>
               </div>
             </div>
 
             {/* Floating Stats Boxes */}
-            <div className="absolute top-4 left-4 floating-box-1">
+            <div className="absolute top-4 left-[-30%] floating-box-1">
               <div className="bg-theam text-white p-6 rounded-lg shadow-lg min-w-[180px]">
                 <div className="flex items-center justify-center mb-2">
                   <FaUsers className="text-3xl" />
@@ -46,7 +47,7 @@ export default function AboutUsSection() {
             </div>
 
             <div className="absolute bottom-4 right-4 floating-box-2">
-              <div className="bg-red-500 text-white p-6 rounded-lg shadow-lg min-w-[180px]">
+              <div className="bg-theam text-white p-6 rounded-lg shadow-lg min-w-[180px]">
                 <div className="flex items-center justify-center mb-2">
                   <FaTrophy className="text-3xl" />
                 </div>
@@ -59,7 +60,7 @@ export default function AboutUsSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 place-content-end lg:w-[60%] md:ms-15">
             {/* Header */}
             <div>
               <div className="flex items-center gap-4 mb-4">
@@ -112,7 +113,8 @@ export default function AboutUsSection() {
           </div>
         </div>
       </div>
-
+      <Counter />
+      <br /><br />
       <style jsx>{`
         .floating-box-1 {
           animation: floatUp 3s ease-in-out infinite;

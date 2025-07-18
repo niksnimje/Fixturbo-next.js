@@ -28,7 +28,10 @@ function Counter() {
   ];
 
   return (
-    <div className="container mx-auto bg-theam py-16 ps-8">
+   <div className="container mx-auto bg-theam py-16 ps-8 mt-6 
+  relative 
+  lg:absolute lg:inset-x-0 lg:left-1/2 lg:-translate-x-1/2">
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {
           count.map((el, index) => (

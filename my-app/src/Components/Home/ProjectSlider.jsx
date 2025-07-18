@@ -72,14 +72,16 @@ export default function ProjectSlider() {
   }
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 mt-35 px-1 bg-white">
+
+       
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+         {/* Header */}
         <div className="flex justify-between items-start mb-12">
           <div>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-[2px] bg-red-500"></div>
-              <span className="text-red-500 text-sm font-semibold uppercase tracking-wider">Our Project</span>
+              <div className="w-12 h-[2px] bg-theam"></div>
+              <span className="text-theam text-sm font-semibold uppercase tracking-wider">Our Project</span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               Affordable Car Repair
@@ -92,18 +94,20 @@ export default function ProjectSlider() {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 bg-white border-2 border-red-500 text-red-500 rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all duration-300 shadow-lg"
+              className="w-12 h-12 bg-white border-2 border-theam text-theam rounded-full flex items-center justify-center hover:bg-theam hover:text-white transition-all duration-300 shadow-lg"
             >
               <FaChevronLeft className="text-lg" />
             </button>
             <button
               onClick={nextSlide}
-              className="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 shadow-lg"
+              className="w-12 h-12 bg-theam text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 shadow-lg"
             >
               <FaChevronRight className="text-lg" />
             </button>
           </div>
         </div>
+        </div>
+      <div className="max-w-8xl mx-auto">
 
         {/* Slider Container */}
         <div className="relative overflow-hidden">
@@ -111,8 +115,8 @@ export default function ProjectSlider() {
             {/* Desktop View - Show 3 slides */}
             <div className="hidden md:flex w-full gap-6">
               {getVisibleSlides().map((slide, index) => (
-                <div key={`${slide.id}-${currentSlide}-${index}`} className="flex-1 group cursor-pointer">
-                  <div className="relative h-96 rounded-lg overflow-hidden">
+                <div key={`${slide.id}-${currentSlide}-${index}`} className="flex-1 group cursor-pointer ">
+                  <div className="relative h-[480px] w-[626px] rounded-lg overflow-hidden">
                     <Image
                       src={slide.image || "/placeholder.svg?height=400&width=600"}
                       alt={slide.title}

@@ -3,28 +3,33 @@
 import Image from "next/image"
 import { FaArrowRight } from "react-icons/fa"
 import Title from "./Title"
+import { FaCarSide, FaTools, FaOilCan } from "react-icons/fa"; // Example icons
+
 
 export default function CarServices() {
-  const services = [
-    {
-      id: 1,
-      title: "Mechanic Masters",
-      image: "/service-1.png",
-      description: "Professional diagnostic and repair services",
-    },
-    {
-      id: 2,
-      title: "Speedy Auto Repair",
-      image: "/service-2.png",
-      description: "Fast and efficient automotive solutions",
-    },
-    {
-      id: 3,
-      title: "Precision Auto Works",
-      image: "/service-3.png",
-      description: "Expert precision in every repair",
-    },
-  ]
+const services = [
+  {
+    id: 1,
+    title: "Mechanic Masters",
+    image: "/service-1.png",
+    icon: FaCarSide,
+    description: "Professional diagnostic and repair services",
+  },
+  {
+    id: 2,
+    title: "Speedy Auto Repair",
+    image: "/service-2.png",
+    icon: FaTools,
+    description: "Fast and efficient automotive solutions",
+  },
+  {
+    id: 3,
+    title: "Precision Auto Works",
+    image: "/service-3.png",
+    icon: FaOilCan,
+    description: "Expert precision in every repair",
+  },
+]
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -33,16 +38,16 @@ export default function CarServices() {
           <Title title="Our Services" content={`Trusted Car Repair the <br /> Professionals`} />
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-auto">
           {services.map((service) => (
-            <div key={service.id} className="group cursor-pointer">
+            <div key={service.id} className="group cursor-pointer ">
               {/* Image Container */}
-              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[4/3] service-card">
+              <div className="relative overflow-hidden rounded-lg mb-6 aspect-[3/3] service-card  ">
                 <Image
                   src={service.image || "/placeholder.svg"}
                   alt={service.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 "
                 />
 
                 {/* Bottom to Top Overlay Effect */}
@@ -50,18 +55,31 @@ export default function CarServices() {
 
                 {/* Title and Content with Animation */}
                 <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <div className="transition-transform duration-500 group-hover:-translate-y-4">
+                 
+
+                  {/* Hidden Content that appears on hover */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0 text-white ">
+  {/* Flip Icon on hover */}
+            <div className="flip-icon-wrapper mb-8">
+              <div className="flip-icon-inner bg-theam ">
+                <div className="flip-icon-front">
+                  <service.icon className="text-5xl text-white" />
+                </div>
+                <div className="flip-icon-back">
+                  <service.icon className="text-5xl text-white" />
+                </div>
+              </div>
+            </div>
+
+   <div className="transition-transform duration-500 group-hover:-translate-y-4">
                     <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight relative title-underline mb-2">
                       {service.title}
                     </h3>
                   </div>
 
-                  {/* Hidden Content that appears on hover */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0">
-                    <p className="text-white/90 text-sm leading-relaxed">
-                      Customer satisfaction is crucial for amohlo di business as it leads to customer loyalty.
-                    </p>
+  <p className="text-sm mt-2">{service.description}</p>
                   </div>
+
                 </div>
               </div>
 
@@ -160,6 +178,40 @@ export default function CarServices() {
         .group:hover .bottom-overlay {
           animation: slideUpFromBottom 0.6s ease-out;
         }
+
+        .flip-icon-wrapper {
+  perspective: 800px;
+  width: 60px;
+  height: 60px;
+}
+
+.flip-icon-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.group:hover .flip-icon-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-icon-front,
+.flip-icon-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-icon-back {
+  transform: rotateY(180deg);
+}
+
       `}</style>
     </section>
   )

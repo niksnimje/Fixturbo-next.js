@@ -60,7 +60,7 @@ const Navbar = () => {
 
       {/* Main Navbar (Fixed on scroll) */}
       <header className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'top-0 bg-theam shadow-md py-2 text-white h-[90px] leading-[80px]' : '-top-full'}`}>
-  <div className="container mx-auto px-4">
+  <div className="container mx-auto px-4 xl:px-0">
     <div className="flex justify-between items-center">
       {/* Logo */}
       <div className="flex items-center">
